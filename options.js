@@ -1,16 +1,22 @@
 function $(id){
   return document.getElementById(id);
 }
-// function init(){
-//   $("account_name").value = localStorage["account_name"] ? localStorage["account_name"] : "";
-// }
 function save(){
-  data = {
-    "account_name": $("account_name").value
+  account_name = $("account_name").value
+  if (account_name === '') {
+    alert("名無しはダメですよ");
+  } else {
+    data = {
+      "account_name": account_name
+    }
+    chrome.storage.sync.set(data, function(){});
+    cfm = confirm(account_name+"さんでよろしいですか？\nよろしければ早速草を生やしに行きましょう！！");
+    if (cfm === true) {
+      location.href = "https://github.com/"+account_name;
+    } else {
+      $("account_name").value = "";
+    }
   }
-  chrome.storage.sync.set(data, function(){});
-  console.log($("account_name").value)
-  // localStorage["account_name"] = $("account_name").value;
 }
 
 window.onload = function(){
