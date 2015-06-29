@@ -1,0 +1,16 @@
+{
+  "name": "niwashi",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "color of github contribution change tool",
+  "icons": {
+    "128": "niwashi.png"
+  },
+  "content_scripts": [{
+    "matches": ["https://github.com/*"],
+    "css":["style.css"]
+  }],
+  "permissions": [
+    "https://github.com/*"
+  ]
+}
