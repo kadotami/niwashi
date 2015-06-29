@@ -8,9 +8,13 @@
   },
   "content_scripts": [{
     "matches": ["https://github.com/*"],
-    "css":["style.css"]
+    // "css":["style.css"],
+    "js": ["script.js"]
   }],
   "permissions": [
-    "https://github.com/*"
-  ]
+    "https://github.com/*",
+    "storage"
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "options_page": "options.html"
 }
