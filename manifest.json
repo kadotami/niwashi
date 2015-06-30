@@ -8,7 +8,6 @@
   },
   "content_scripts": [{
     "matches": ["https://github.com/*"],
-    // "css":["style.css"],
     "js": ["script.js"]
   }],
   "permissions": [
